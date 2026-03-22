@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.4.2.3 (Windows)"/>
+	<meta name="created" content="2026-03-22T05:01:06.214000000"/>
+	<meta name="changed" content="2026-03-22T05:01:26.158000000"/>
+</head>
+<body lang="zh-TW" dir="ltr"><p><font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!DOCTYPE
+html&gt;</span></font></font></p>
+<p><font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;html
+lang=&quot;zh-TW&quot;&gt;</span></font></font></p>
+<p><font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;head&gt;</span></font></font></p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;meta
+charset=&quot;UTF-8&quot;&gt;</span></font></font></p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;meta
+name=&quot;viewport&quot; content=&quot;width=device-width,
+initial-scale=1.0&quot;&gt;</span></font></font></p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;title&gt;</span></font></font>奧地利（歐盟）產品進口專項指南<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/title&gt;</span></font></font></p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;script
+src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;</span></font></font></p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;script
+src=&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;&gt;&lt;/script&gt;</span></font></font></p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;link
+href=&quot;https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&amp;display=swap&quot;
+rel=&quot;stylesheet&quot;&gt;</span></font></font></p>
+<p>    
+</p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+Chosen Palette: Warm Neutrals &amp; Professional Slate (bg-stone-50,
+text-slate-800, accents of teal-700 for trust, amber-500/rose-600 for
+risk/difficulty warnings) --&gt;</span></font></font></p>
+<p>    
+</p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+Application Structure Plan: </span></font></font>
+</p>
+<p>         <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">This
+SPA uses a &quot;Dashboard/Exploratory&quot; layout. Instead of a
+long, scrolling document, the user is presented with a central
+interactive hub.</span></font></font></p>
+<p>         <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">1.
+Hero &amp; Intro: Sets the context and explains the guide's purpose.</span></font></font></p>
+<p>         <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">2.
+Interactive Category Explorer: The core interaction. Users click on a
+product category (Food, Cosmetics, Electronics) to dynamically load
+its specific compliance processes, key difficulties, and a visual
+difficulty gauge. This reduces cognitive load by only showing
+relevant information.</span></font></font></p>
+<p>         <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">3.
+Comparative Matrix: A side-by-side visual table allowing users to
+quickly contrast the requirements of all three categories.</span></font></font></p>
+<p>         <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">4.
+Strategic Support: Concluding section detailing Tammi's solutions to
+the highlighted problems.</span></font></font></p>
+<p>         <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">This
+structure was chosen to make complex regulatory information
+digestible, task-oriented, and easy to navigate for business
+partners. --&gt;</span></font></font></p>
+<p>    
+</p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+Visualization &amp; Content Choices: </span></font></font>
+</p>
+<p>         <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">1.
+Difficulty Gauge (Chart.js Doughnut): Report Info -&gt; Difficulty
+Rating (1-5) -&gt; Goal: Visually communicate risk/barrier to entry
+-&gt; Interaction: Updates dynamically when a category is clicked -&gt;
+Justification: A half-circle gauge instantly conveys &quot;how hard
+is this&quot; better than text stars.</span></font></font></p>
+<p>         <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">2.
+Category Cards (HTML/CSS/JS): Report Info -&gt; 3 Main Categories -&gt;
+Goal: Organize content -&gt; Interaction: Clickable selectors -&gt;
+Justification: Keeps UI clean; users focus on one product type at a
+time.</span></font></font></p>
+<p>         <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">3.
+Comparison Matrix (Tailwind Grid): Report Info -&gt; Summary Table -&gt;
+Goal: Compare cross-category requirements -&gt; Interaction: Hover
+effects for readability -&gt; Justification: Best way to show
+qualitative comparisons side-by-side. </span></font></font>
+</p>
+<p>         <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">Confirming
+NO SVG/Mermaid used. HTML/CSS and Unicode emojis are used for all
+iconography. --&gt;</span></font></font></p>
+<p>    
+</p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. --&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;style&gt;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">body
+{</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">font-family:
+'Noto Sans TC', sans-serif;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">background-color:
+#fafaf9; /* stone-50 */</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">color:
+#1e293b; /* slate-800 */</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p>        
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">.chart-container
+{</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">position:
+relative;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">width:
+100%;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">max-width:
+250px;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">margin-left:
+auto;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">margin-right:
+auto;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">height:
+150px; /* Base height for half-doughnut */</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">max-height:
+200px;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">display:
+flex;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">align-items:
+flex-end;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">justify-content:
+center;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">.category-btn
+{</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">transition:
+all 0.3s cubic-bezier(0.4, 0, 0.2, 1);</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p>        
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">.category-btn.active
+{</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">background-color:
+#0f766e; /* teal-700 */</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">color:
+white;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">border-color:
+#0f766e;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">transform:
+translateY(-2px);</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">box-shadow:
+0 10px 15px -3px rgba(15, 118, 110, 0.3);</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p>        
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">.category-btn:not(.active):hover
+{</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">background-color:
+#f1f5f9;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">border-color:
+#cbd5e1;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">.fade-enter
+{</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">animation:
+fadeIn 0.4s ease-out forwards;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">@keyframes
+fadeIn {</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">from
+{ opacity: 0; transform: translateY(10px); }</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">to
+{ opacity: 1; transform: translateY(0); }</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">.matrix-cell
+{</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">transition:
+background-color 0.2s;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">.matrix-cell:hover
+{</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">background-color:
+#f8fafc;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p>        
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">/*
+Custom scrollbar for better aesthetics */</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">::-webkit-scrollbar
+{ width: 8px; }</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">::-webkit-scrollbar-track
+{ background: #f1f5f9; }</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">::-webkit-scrollbar-thumb
+{ background: #cbd5e1; border-radius: 4px; }</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">::-webkit-scrollbar-thumb:hover
+{ background: #94a3b8; }</span></font></font></p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/style&gt;</span></font></font></p>
+<p><font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/head&gt;</span></font></font></p>
+<p><font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;body
+class=&quot;antialiased min-h-screen flex flex-col&quot;&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+Header --&gt;</span></font></font></p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;header
+class=&quot;bg-white shadow-sm border-b border-stone-200 sticky top-0
+z-50&quot;&gt;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;max-w-6xl mx-auto px-6 py-4 flex justify-between
+items-center&quot;&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;text-2xl font-black text-slate-800 tracking-tight flex
+items-center gap-2&quot;&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;span&gt;🇪🇺&lt;/span&gt;
+</span></font></font>奧地利產品進口指南</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;hidden md:block text-sm font-bold text-teal-700
+bg-teal-50 px-3 py-1 rounded-full border border-teal-100&quot;&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">Tammi
+</span></font></font>跨境貿易戰略組</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/header&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;main
+class=&quot;flex-grow max-w-6xl mx-auto px-4 sm:px-6 py-10 w-full
+space-y-16&quot;&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+1. Hero &amp; Intro Section --&gt;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;section
+class=&quot;text-center max-w-4xl mx-auto fade-enter&quot;&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h1
+class=&quot;text-4xl md:text-5xl font-black text-slate-900 mb-6
+leading-tight&quot;&gt;</span></font></font></p>
+<p>                歐盟市場進口合規<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;br&gt;&lt;span
+class=&quot;text-teal-700&quot;&gt;</span></font></font>流程與難易度深度解析<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/span&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/h1&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
+class=&quot;text-lg text-slate-600 leading-relaxed mb-4&quot;&gt;</span></font></font></p>
+<p>               
+本互動指南旨在為跨境貿易夥伴提供進入歐盟市場（以奧地利為門戶）的標準作業程序及風險評估。透過下方的互動模組，您可以快速探索最常見且監管嚴格的<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;strong
+class=&quot;text-slate-800&quot;&gt;</span></font></font>三大品類（食品、保養品、電器）<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/strong&gt;</span></font></font>之合規流程、技術要求與潛在難點。</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/p&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
+class=&quot;text-sm text-slate-500&quot;&gt;</span></font></font></p>
+<p>                點擊下方分類，立即檢視專屬的進口合規數據與流程。</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/p&gt;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/section&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+2. Interactive Category Explorer --&gt;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;section
+class=&quot;bg-white rounded-3xl shadow-lg border border-stone-200
+overflow-hidden fade-enter&quot; style=&quot;animation-delay: 0.1s;&quot;&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;p-6 md:p-8 border-b border-stone-100 bg-stone-50/50&quot;&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h2
+class=&quot;text-2xl font-bold text-slate-800 mb-2&quot;&gt;</span></font></font>品類合規深度探勘<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/h2&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
+class=&quot;text-slate-500 text-sm
+mb-6&quot;&gt;</span></font></font>選擇您的目標產品類別，系統將動態載入該品類的進口難易度指標、核心審核流程及必須注意的法規障礙。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/p&gt;</span></font></font></p>
+<p>                
+</p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+Selectors --&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;grid grid-cols-1 md:grid-cols-3 gap-4&quot;
+id=&quot;category-selectors&quot;&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;button
+class=&quot;category-btn active border-2 border-stone-200 rounded-xl
+p-4 text-left flex items-center gap-4&quot; data-category=&quot;food&quot;
+onclick=&quot;selectCategory('food')&quot;&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;text-3xl bg-white/20 p-2 rounded-lg&quot;&gt;🍏&lt;/div&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;font-bold text-lg&quot;&gt;</span></font></font>食品與營養補充品<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;text-xs opacity-80 mt-1&quot;&gt;Food &amp;
+Supplements&lt;/div&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/button&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;button
+class=&quot;category-btn border-2 border-stone-200 rounded-xl p-4
+text-left flex items-center gap-4&quot; data-category=&quot;cosmetics&quot;
+onclick=&quot;selectCategory('cosmetics')&quot;&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;text-3xl bg-white/20 p-2 rounded-lg&quot;&gt;🧴&lt;/div&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;font-bold text-lg&quot;&gt;</span></font></font>保養品與化妝品<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;text-xs opacity-80 mt-1&quot;&gt;Cosmetics &amp;
+Skincare&lt;/div&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/button&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;button
+class=&quot;category-btn border-2 border-stone-200 rounded-xl p-4
+text-left flex items-center gap-4&quot; data-category=&quot;electronics&quot;
+onclick=&quot;selectCategory('electronics')&quot;&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;text-3xl bg-white/20 p-2 rounded-lg&quot;&gt;🔌&lt;/div&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;font-bold text-lg&quot;&gt;</span></font></font>電器與電子產品<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;text-xs opacity-80 mt-1&quot;&gt;Electronics &amp;
+Electricals&lt;/div&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/button&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+Dynamic Content Area --&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;p-6 md:p-10 grid grid-cols-1 lg:grid-cols-3 gap-10&quot;&gt;</span></font></font></p>
+<p>                
+</p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+Left: Difficulty Chart --&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;lg:col-span-1 flex flex-col items-center justify-center
+bg-stone-50 rounded-2xl p-6 border border-stone-100&quot;&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h3
+class=&quot;text-center font-bold text-slate-700 mb-2&quot;&gt;</span></font></font>進口合規難易度<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/h3&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
+class=&quot;text-xs text-slate-500 mb-6 text-center&quot;
+id=&quot;difficulty-desc&quot;&gt;</span></font></font>基於歐盟
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">EFSA
+</span></font></font>規範<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/p&gt;</span></font></font></p>
+<p>                    
+</p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;chart-container&quot;&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;canvas
+id=&quot;difficultyChart&quot;&gt;&lt;/canvas&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+Center text overlay for chart --&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;absolute bottom-0 text-center w-full pb-2&quot;&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;span
+class=&quot;text-3xl font-black text-slate-800&quot;
+id=&quot;difficulty-score&quot;&gt;5&lt;/span&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;span
+class=&quot;text-slate-500 text-sm&quot;&gt;/ 5&lt;/span&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>                    
+</p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;mt-8 text-center w-full&quot;&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;inline-block bg-white px-4 py-2 rounded-lg border
+border-stone-200 shadow-sm text-sm font-bold w-full&quot;
+id=&quot;difficulty-label&quot;&gt;</span></font></font></p>
+<p>                            極高 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(Extreme)</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+Right: Process &amp; Risks --&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;lg:col-span-2 space-y-8&quot;&gt;</span></font></font></p>
+<p>                    
+</p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+Core Process --&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h3
+class=&quot;flex items-center gap-2 text-xl font-bold text-teal-800
+mb-4 border-b-2 border-teal-100 pb-2&quot;&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;span&gt;📋&lt;/span&gt;
+</span></font></font>核心合規流程</p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/h3&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;ul
+class=&quot;space-y-4&quot; id=&quot;process-list&quot;&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+Populated by JS --&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/ul&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+Key Risks --&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h3
+class=&quot;flex items-center gap-2 text-xl font-bold text-rose-700
+mb-4 border-b-2 border-rose-100 pb-2&quot;&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;span&gt;⚠️&lt;/span&gt;
+</span></font></font>關鍵法規難點</p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/h3&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;grid grid-cols-1 sm:grid-cols-2 gap-4&quot;
+id=&quot;risk-list&quot;&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+Populated by JS --&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/section&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+3. Comparative Matrix --&gt;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;section
+class=&quot;fade-enter&quot; style=&quot;animation-delay: 0.2s;&quot;&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;text-center mb-8&quot;&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h2
+class=&quot;text-3xl font-black text-slate-800 mb-3&quot;&gt;</span></font></font>三大品類合規清單總結<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/h2&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
+class=&quot;text-slate-600 max-w-2xl
+mx-auto&quot;&gt;</span></font></font>本矩陣提供各品類在首要任務、通報系統、環境責任及核心風險上的橫向對比，幫助您快速評估不同產品線進入歐盟的資源配置需求。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/p&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;overflow-x-auto bg-white rounded-2xl shadow-sm border
+border-stone-200&quot;&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;table
+class=&quot;w-full text-left border-collapse min-w-[800px]&quot;&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;thead&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;tr
+class=&quot;bg-slate-800 text-white text-sm uppercase
+tracking-wider&quot;&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;th
+class=&quot;p-4 font-bold rounded-tl-2xl w-1/4&quot;&gt;</span></font></font>評估項目<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/th&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;th
+class=&quot;p-4 font-bold w-1/4&quot;&gt;🍏 </span></font></font>食品
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(Food)&lt;/th&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;th
+class=&quot;p-4 font-bold w-1/4&quot;&gt;🧴 </span></font></font>保養品
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(Cosmetics)&lt;/th&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;th
+class=&quot;p-4 font-bold rounded-tr-2xl w-1/4&quot;&gt;🔌 </span></font></font>電器
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(Electronics)&lt;/th&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/tr&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/thead&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;tbody
+class=&quot;text-sm text-slate-700 divide-y divide-stone-200&quot;&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;tr
+class=&quot;matrix-cell&quot;&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4 font-bold text-slate-900 bg-stone-50/50&quot;&gt;🎯
+</span></font></font>首要任務<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/td&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4&quot;&gt;</span></font></font>配方審核 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&amp;
+</span></font></font>標籤德文化<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/td&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4&quot;&gt;</span></font></font>指定歐盟責任人
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(RP)&lt;/td&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4&quot;&gt;</span></font></font>取得 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">CE
+</span></font></font>測試報告<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/td&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/tr&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;tr
+class=&quot;matrix-cell&quot;&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4 font-bold text-slate-900 bg-stone-50/50&quot;&gt;💻
+</span></font></font>通報系統<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/td&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4&quot;&gt;TRACES &lt;span class=&quot;text-xs
+text-slate-500&quot;&gt;(</span></font></font>部分受控品<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">)&lt;/span&gt;&lt;/td&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4 font-bold text-teal-700&quot;&gt;CPNP&lt;/td&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4 text-slate-500&quot;&gt;N/A (</span></font></font>市場抽檢制<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">)&lt;/td&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/tr&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;tr
+class=&quot;matrix-cell&quot;&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4 font-bold text-slate-900 bg-stone-50/50&quot;&gt;♻️
+</span></font></font>環境責任<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/td&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4&quot;&gt;</span></font></font>包裝回收 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(ARA)&lt;/td&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4&quot;&gt;</span></font></font>包裝回收 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(ARA)&lt;/td&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4 font-bold text-teal-700&quot;&gt;WEEE &amp; </span></font></font>電池回收<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/td&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/tr&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;tr
+class=&quot;matrix-cell&quot;&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4 font-bold text-slate-900 bg-stone-50/50&quot;&gt;🚨
+</span></font></font>核心風險<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/td&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4 text-rose-600 font-medium&quot;&gt;</span></font></font>成分違規、過敏原漏標<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/td&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4 text-rose-600 font-medium&quot;&gt;</span></font></font>安全評估未通過<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/td&gt;</span></font></font></p>
+<p>                            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;td
+class=&quot;p-4 text-rose-600 font-medium&quot;&gt;</span></font></font>測試報告與實物不符<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/td&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/tr&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/tbody&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/table&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/section&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+4. Strategic Support --&gt;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;section
+class=&quot;bg-teal-900 rounded-3xl p-8 md:p-12 text-white shadow-xl
+fade-enter relative overflow-hidden&quot; style=&quot;animation-delay:
+0.3s;&quot;&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+Decorative background elements --&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;absolute top-0 right-0 -mt-10 -mr-10 text-9xl
+opacity-5&quot;&gt;🇪🇺&lt;/div&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;absolute bottom-0 left-0 -mb-10 -ml-10 text-9xl
+opacity-5&quot;&gt;🤝&lt;/div&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;relative z-10&quot;&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h2
+class=&quot;text-3xl font-black mb-4&quot;&gt;Tammi </span></font></font>的專業支持策略<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/h2&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
+class=&quot;text-teal-100 mb-10 max-w-3xl leading-relaxed&quot;&gt;</span></font></font></p>
+<p>                    面對上述繁複的合規流程與風險，<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">Tammi
+</span></font></font>跨境貿易戰略組提供在地化的解決方案，確保您的產品安全、快速地進入歐盟市場。</p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/p&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;grid grid-cols-1 md:grid-cols-3 gap-6&quot;&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;bg-teal-800/50 p-6 rounded-2xl border border-teal-700
+backdrop-blur-sm hover:bg-teal-800 transition-colors&quot;&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;text-3xl mb-4&quot;&gt;🔍&lt;/div&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h4
+class=&quot;text-lg font-bold mb-2&quot;&gt;</span></font></font>前期評估
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(Pre-Assessment)&lt;/h4&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
+class=&quot;text-teal-100
+text-sm&quot;&gt;</span></font></font>在貨物寄出前，我們免費為合作夥伴審核產品成分表與證書，從源頭降低退運風險。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/p&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;bg-teal-800/50 p-6 rounded-2xl border border-teal-700
+backdrop-blur-sm hover:bg-teal-800 transition-colors&quot;&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;text-3xl mb-4&quot;&gt;🔤&lt;/div&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h4
+class=&quot;text-lg font-bold mb-2&quot;&gt;</span></font></font>標籤在地化<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/h4&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
+class=&quot;text-teal-100
+text-sm&quot;&gt;</span></font></font>提供精準的德文翻譯與奧地利市場專屬標籤排版建議，確保符合當地嚴格法規。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/p&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;bg-teal-800/50 p-6 rounded-2xl border border-teal-700
+backdrop-blur-sm hover:bg-teal-800 transition-colors&quot;&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;text-3xl mb-4&quot;&gt;📦&lt;/div&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h4
+class=&quot;text-lg font-bold mb-2&quot;&gt;</span></font></font>整合倉儲<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/h4&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
+class=&quot;text-teal-100
+text-sm&quot;&gt;</span></font></font>完成合規後的產品可存放於我們在奧地利的合作倉庫，實現「清關即上架」的無縫銜接。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/p&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/section&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/main&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;footer
+class=&quot;bg-white border-t border-stone-200 mt-auto&quot;&gt;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row
+justify-between items-center text-sm text-slate-500&quot;&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div&gt;©
+2026 Tammi </span></font></font>跨境貿易戰略組<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div&gt;</span></font></font>數據來源：歐盟進口深度指南
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(2026</span></font></font>年<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">3</span></font></font>月更新<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">)&lt;/div&gt;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/footer&gt;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
+Application Logic --&gt;</span></font></font></p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;script&gt;</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">//
+1. Data Storage: Content extracted from the Markdown report</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">const
+reportData = {</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">food:
+{</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">title:
+&quot;</span></font></font>食品與營養補充品<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;,</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">difficulty:
+5,</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">difficultyLabel:
+&quot;</span></font></font>極高難度 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(Extreme)&quot;,</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">difficultyDesc:
+&quot;</span></font></font>歐盟監管最嚴格領域，受 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">EFSA
+</span></font></font>規範<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;,</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">chartColor:
+&quot;#ef4444&quot;, // rose-500</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">process:
+[</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">{
+title: &quot;</span></font></font>配方審核<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;,
+desc: &quot;</span></font></font>確認所有添加劑、甜味劑、色素是否在歐盟允許清單內。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;
+},</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">{
+title: &quot;</span></font></font>標籤合規 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(Labelling)&quot;,
+desc: &quot;</span></font></font>奧地利法律強制要求<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;strong
+class='text-teal-700'&gt;</span></font></font>德文標籤<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/strong&gt;</span></font></font>。須包含成分、過敏原（需粗體）、製造商資訊、批號及有效日期。禁止宣稱具備「醫療療效」。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;
+},</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">{
+title: &quot;</span></font></font>口岸抽驗<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;,
+desc: &quot;</span></font></font>產品到達後，可能面臨微生物與化學殘留抽檢。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;
+}</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">],</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">risks:
+[</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">{
+title: &quot;Novel Food (</span></font></font>新資源食品<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">)&quot;,
+desc: &quot;</span></font></font>若產品含有歐盟在 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">1997
+</span></font></font>年前未廣泛食用的成分，需進行複雜的新資源食品申請。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;
+},</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">{
+title: &quot;</span></font></font>過敏原控管<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;,
+desc: &quot;14 </span></font></font>種法規指定的過敏原必須清晰標示，漏標即違規。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;
+}</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">]</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">},</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">cosmetics:
+{</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">title:
+&quot;</span></font></font>保養品與化妝品<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;,</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">difficulty:
+3,</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">difficultyLabel:
+&quot;</span></font></font>中高難度 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(Moderate-High)&quot;,</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">difficultyDesc:
+&quot;</span></font></font>遵循歐盟化妝品法規 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">EC
+No 1223/2009&quot;,</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">chartColor:
+&quot;#f59e0b&quot;, // amber-500</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">process:
+[</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">{
+title: &quot;</span></font></font>指定責任人 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(RP)&quot;,
+desc: &quot;&lt;strong class='text-teal-700'&gt;</span></font></font>必須<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/strong&gt;</span></font></font>在歐盟境內指定一個實體（如
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">Tammi
+</span></font></font>奧地利公司）作為產品安全責任人。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;
+},</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">{
+title: &quot;CPNP </span></font></font>登錄<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;,
+desc: &quot;</span></font></font>在產品上市前，需在「化妝品通報門戶」進行線上登錄。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;
+},</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">{
+title: &quot;PIF </span></font></font>文件編制<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;,
+desc: &quot;</span></font></font>包含由歐洲資格毒理學家簽署的<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;strong
+class='text-slate-800'&gt;</span></font></font>安全評估
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(SA)&lt;/strong&gt;</span></font></font>，以及穩定性、挑戰及包裝兼容性測試。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;
+}</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">],</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">risks:
+[</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">{
+title: &quot;</span></font></font>動物實驗禁令<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;,
+desc: &quot;</span></font></font>絕對禁止任何在動物身上進行測試的成分進入歐盟。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;
+},</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">{
+title: &quot;</span></font></font>成分名稱 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(INCI)&quot;,
+desc: &quot;</span></font></font>成分標示必須嚴格使用國際標準命名。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;
+}</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">]</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">},</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">electronics:
+{</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">title:
+&quot;</span></font></font>電器與電子產品<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;,</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">difficulty:
+2,</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">difficultyLabel:
+&quot;</span></font></font>中低難度 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(Moderate-Low)&quot;,</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">difficultyDesc:
+&quot;</span></font></font>核心在於「安全性」與「環保回收責任」<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;,</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">chartColor:
+&quot;#0ea5e9&quot;, // sky-500</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">process:
+[</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">{
+title: &quot;CE </span></font></font>標誌認證<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;,
+desc: &quot;</span></font></font>需取得 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;strong
+class='text-slate-800'&gt;LVD&lt;/strong&gt; (</span></font></font>低電壓指令<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">)</span></font></font>、<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;strong
+class='text-slate-800'&gt;EMC&lt;/strong&gt; (</span></font></font>電磁相容性<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">)</span></font></font>，含藍牙<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">/Wi-Fi</span></font></font>則需
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;strong
+class='text-slate-800'&gt;RED&lt;/strong&gt;</span></font></font>。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;
+},</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">{
+title: &quot;RoHS </span></font></font>限制<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;,
+desc: &quot;</span></font></font>確認不含鉛、汞、鎘等 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">10
+</span></font></font>種有害物質。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;
+},</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">{
+title: &quot;</span></font></font>技術文件 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">(TCF)&quot;,
+desc: &quot;</span></font></font>製造商需提供電路圖、零件表（<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">BOM</span></font></font>）及測試報告。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;
+}</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">],</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">risks:
+[</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">{
+title: &quot;WEEE </span></font></font>註冊<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;,
+desc: &quot;</span></font></font>產品必須標示「打叉垃圾桶」符號，且進口商需支付回收處理費。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;
+},</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">{
+title: &quot;</span></font></font>電池指令<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;,
+desc: &quot;</span></font></font>若產品內含電池，需額外註冊電池回收系統。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&quot;
+}</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">]</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">};</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">//
+2. State Management</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">let
+currentCategory = 'food';</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">let
+difficultyChartInstance = null;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">//
+3. Core Interaction Handling</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">function
+selectCategory(categoryId) {</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">//
+Update buttons state</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">document.querySelectorAll('.category-btn').forEach(btn
+=&gt; {</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">btn.classList.remove('active');</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">});</span></font></font></p>
+<p>           
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">document.querySelector(`[data-category=&quot;${categoryId}&quot;]`).classList.add('active');</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">currentCategory
+= categoryId;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">updateUI();</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">function
+updateUI() {</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">const
+data = reportData[currentCategory];</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">//
+Update Text Elements</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">document.getElementById('difficulty-desc').innerText
+= data.difficultyDesc;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">document.getElementById('difficulty-score').innerText
+= data.difficulty;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">const
+labelEl = document.getElementById('difficulty-label');</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">labelEl.innerText
+= data.difficultyLabel;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">labelEl.style.color
+= data.chartColor;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">labelEl.style.borderColor
+= data.chartColor;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">//
+Update Process List</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">const
+processList = document.getElementById('process-list');</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">processList.innerHTML
+= '';</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">data.process.forEach((item,
+index) =&gt; {</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">const
+li = document.createElement('li');</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">li.className
+= 'bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex
+gap-4';</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">li.innerHTML
+= `</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
+class=&quot;flex-shrink-0 w-8 h-8 rounded-full bg-teal-50
+text-teal-700 flex items-center justify-center font-bold border
+border-teal-100&quot;&gt;${index + 1}&lt;/div&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h4
+class=&quot;font-bold text-slate-800 mb-1&quot;&gt;${item.title}&lt;/h4&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
+class=&quot;text-sm text-slate-600 leading-relaxed&quot;&gt;${item.desc}&lt;/p&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">`;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">processList.appendChild(li);</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">});</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">//
+Update Risks List</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">const
+riskList = document.getElementById('risk-list');</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">riskList.innerHTML
+= '';</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">data.risks.forEach(item
+=&gt; {</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">const
+div = document.createElement('div');</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">div.className
+= 'bg-rose-50 p-4 rounded-xl border border-rose-100';</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">div.innerHTML
+= `</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h4
+class=&quot;font-bold text-rose-800 mb-2 flex items-center gap-2&quot;&gt;</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;span
+class=&quot;text-lg&quot;&gt;⛔&lt;/span&gt; ${item.title}</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/h4&gt;</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
+class=&quot;text-sm text-rose-700/80
+leading-relaxed&quot;&gt;${item.desc}&lt;/p&gt;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">`;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">riskList.appendChild(div);</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">});</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">//
+Update Chart</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">updateChart(data.difficulty,
+data.chartColor);</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">function
+updateChart(difficultyScore, color) {</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">const
+ctx = document.getElementById('difficultyChart').getContext('2d');</span></font></font></p>
+<p>            
+</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">//
+For a gauge from 1 to 5</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">const
+maxScore = 5;</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">const
+remainder = maxScore - difficultyScore;</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">const
+chartData = {</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">labels:
+['</span></font></font>難度<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">',
+''],</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">datasets:
+[{</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">data:
+[difficultyScore, remainder],</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">backgroundColor:
+[color, '#e2e8f0'], // Value color, empty color</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">borderWidth:
+0,</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">circumference:
+180, // Half circle</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">rotation:
+-90 // Start from left</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}]</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">};</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">const
+config = {</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">type:
+'doughnut',</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">data:
+chartData,</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">options:
+{</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">responsive:
+true,</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">maintainAspectRatio:
+false,</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">cutout:
+'75%', // Make it thin</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">plugins:
+{</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">legend:
+{ display: false },</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">tooltip:
+{ enabled: false } // Disable tooltip for gauge</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">},</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">animation:
+{</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">animateScale:
+false,</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">animateRotate:
+true,</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">duration:
+800,</span></font></font></p>
+<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">easing:
+'easeOutQuart'</span></font></font></p>
+<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">};</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">if
+(difficultyChartInstance) {</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">difficultyChartInstance.data
+= chartData;</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">difficultyChartInstance.update();</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}
+else {</span></font></font></p>
+<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">difficultyChartInstance
+= new Chart(ctx, config);</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">//
+Initialize on load</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">window.addEventListener('DOMContentLoaded',
+() =&gt; {</span></font></font></p>
+<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">updateUI();
+// Load default (food)</span></font></font></p>
+<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">});</span></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/script&gt;</span></font></font></p>
+<p><font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/body&gt;</span></font></font></p>
+<p><font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/html&gt;</span></font></font></p>
+</body>
+</html>
