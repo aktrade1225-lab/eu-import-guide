@@ -1,202 +1,351 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 7.4.2.3 (Windows)"/>
-	<meta name="created" content="2026-03-22T05:01:06.214000000"/>
-	<meta name="changed" content="2026-03-22T05:16:42.193000000"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tammi 跨境貿易 - 合作夥伴上架門戶</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: Professional Navy & Teal (bg-slate-50, text-slate-900, brand-teal-600) -->
+    
+    <!-- Application Structure Plan: 
+         此 SPA 設計為一個「供應商引導門戶」。
+         1. 導航欄：快速導引至流程、合規或支援。
+         2. 視覺化流程圖：將 logistics_hub_setup.md 的五個步驟視覺化，使用者點擊步驟可查看詳情。
+         3. 合規選擇器：整合食品、保養品、電器的具體要求，減少資訊過載。
+         4. 支援區域：提供專業撇步與聯繫方式。
+         選用此結構是為了讓供應商能清楚知道「我在哪一步」以及「我還缺什麼」。 -->
+    
+    <!-- Visualization & Content Choices: 
+         - 流程指示器 (HTML/CSS)：將五大步驟轉化為可交互的進度條。
+         - 合規切換器 (JS)：根據產品類別動態切換顯示內容。
+         - 難易度圖表 (Chart.js)：視覺化呈現不同品類的進入門檻。
+         確認不使用 SVG 或 Mermaid。 -->
+    
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .step-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .step-card.active {
+            border-color: #0d9488;
+            background-color: #f0fdfa;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+            height: 250px;
+        }
+    </style>
 </head>
-<body lang="zh-TW" dir="ltr"><p><font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!DOCTYPE
-html&gt;</span></font></font></p>
-<p><font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;html
-lang=&quot;zh-TW&quot;&gt;</span></font></font></p>
-<p><font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;head&gt;</span></font></font></p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;meta
-charset=&quot;UTF-8&quot;&gt;</span></font></font></p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;meta
-name=&quot;viewport&quot; content=&quot;width=device-width,
-initial-scale=1.0&quot;&gt;</span></font></font></p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;title&gt;Tammi
-</span></font></font>奧地利跨境貿易合作規劃<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/title&gt;</span></font></font></p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
-</span></font></font>引入 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">Tailwind
-CSS --&gt;</span></font></font></p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;script
-src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;</span></font></font></p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
-</span></font></font>引入 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">Chart.js
---&gt;</span></font></font></p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;script
-src=&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;&gt;&lt;/script&gt;</span></font></font></p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
-</span></font></font>引入 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">Google
-</span></font></font>字體 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">--&gt;</span></font></font></p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;link
-href=&quot;https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&amp;display=swap&quot;
-rel=&quot;stylesheet&quot;&gt;</span></font></font></p>
-<p>    
-</p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;style&gt;</span></font></font></p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">body
-{ font-family: 'Noto Sans TC', sans-serif; }</span></font></font></p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">.chart-container
-{ position: relative; width: 100%; max-width: 500px; margin: auto;
-height: 300px; }</span></font></font></p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/style&gt;</span></font></font></p>
-<p><font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/head&gt;</span></font></font></p>
-<p><font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;body
-class=&quot;bg-stone-50 text-slate-900 antialiased&quot;&gt;</span></font></font></p>
-<p><br/>
-<br/>
+<body class="bg-slate-50 text-slate-900">
 
-</p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
-</span></font></font>導航欄 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">--&gt;</span></font></font></p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;nav
-class=&quot;bg-white shadow-sm border-b sticky top-0 z-50&quot;&gt;</span></font></font></p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
-class=&quot;max-w-6xl mx-auto px-6 py-4 flex justify-between
-items-center&quot;&gt;</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
-class=&quot;text-xl font-black&quot;&gt;TAMMI &lt;span
-class=&quot;text-teal-600&quot;&gt;AUSTRIA&lt;/span&gt;&lt;/div&gt;</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
-class=&quot;text-sm font-bold text-teal-700 bg-teal-50 px-3 py-1
-rounded-full border&quot;&gt;GC </span></font></font>團隊合作計畫<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/nav&gt;</span></font></font></p>
-<p><br/>
-<br/>
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-black text-slate-800 tracking-tighter">
+                TAMMI <span class="text-teal-600">HUB</span>
+            </div>
+            <div class="space-x-8 hidden md:flex font-medium text-sm">
+                <a href="#process" class="hover:text-teal-600 transition">上架流程</a>
+                <a href="#compliance" class="hover:text-teal-600 transition">合規指南</a>
+                <a href="#support" class="hover:text-teal-600 transition">專業支援</a>
+            </div>
+            <button class="bg-slate-900 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-teal-700 transition">
+                聯繫顧問
+            </button>
+        </div>
+    </nav>
 
-</p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;main
-class=&quot;max-w-4xl mx-auto px-6 py-12&quot;&gt;</span></font></font></p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
-</span></font></font>標題區 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">--&gt;</span></font></font></p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;section
-class=&quot;mb-16 text-center&quot;&gt;</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h1
-class=&quot;text-4xl font-black mb-4&quot;&gt;</span></font></font>奧地利跨境貿易樞紐<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/h1&gt;</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
-class=&quot;text-slate-500&quot;&gt;</span></font></font>連結中歐與亞太市場的專業貿易合規解決方案<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/p&gt;</span></font></font></p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/section&gt;</span></font></font></p>
-<p><br/>
-<br/>
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-20">
+            <h1 class="text-4xl md:text-6xl font-black mb-6">奧地利物流中心<br><span class="text-teal-600">實戰上架門戶</span></h1>
+            <p class="text-slate-500 text-lg max-w-2xl mx-auto">
+                我們協助您的產品在奧地利正式「落地」，並實現全歐盟快速配送。請依照下方指引完成您的跨境擴張。
+            </p>
+        </header>
 
-</p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
-</span></font></font>核心優勢互動區 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">--&gt;</span></font></font></p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;section
-class=&quot;grid md:grid-cols-2 gap-8 mb-16&quot;&gt;</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
-class=&quot;bg-white p-8 rounded-3xl shadow-sm border
-border-stone-200&quot;&gt;</span></font></font></p>
-<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h2
-class=&quot;text-xl font-bold mb-4 flex items-center
-gap-2&quot;&gt;&lt;span&gt;🛡️&lt;/span&gt; </span></font></font>專業合規<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/h2&gt;</span></font></font></p>
-<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
-class=&quot;text-sm text-slate-600
-leading-relaxed&quot;&gt;</span></font></font>提供嚴謹的產品認證代辦，解決跨境貿易中最困難的法規門檻（如歐盟認證、進口標籤、報關合規）。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/p&gt;</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
-class=&quot;bg-white p-8 rounded-3xl shadow-sm border
-border-stone-200&quot;&gt;</span></font></font></p>
-<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h2
-class=&quot;text-xl font-bold mb-4 flex items-center
-gap-2&quot;&gt;&lt;span&gt;📦&lt;/span&gt; </span></font></font>貨盤供應<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/h2&gt;</span></font></font></p>
-<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
-class=&quot;text-sm text-slate-600
-leading-relaxed&quot;&gt;</span></font></font>提供歐洲在地一線品牌或特色利基產品的現貨<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">/</span></font></font>期貨供應，支持直播帶貨合作。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/p&gt;</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/section&gt;</span></font></font></p>
-<p><br/>
-<br/>
+        <!-- 1. Interactive Step Process (from logistics_hub_setup.md) -->
+        <section id="process" class="mb-32">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="h-10 w-2 bg-teal-600 rounded-full"></div>
+                <h2 class="text-3xl font-black">五步實現全歐配送</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
+                <div class="step-card active border-2 p-6 rounded-2xl text-center" onclick="showStep(1)" id="btn-step-1">
+                    <div class="text-2xl font-bold mb-2 text-slate-300">01</div>
+                    <div class="font-bold">基礎設定</div>
+                </div>
+                <div class="step-card border-2 p-6 rounded-2xl text-center" onclick="showStep(2)" id="btn-step-2">
+                    <div class="text-2xl font-bold mb-2 text-slate-300">02</div>
+                    <div class="font-bold">產品主數據</div>
+                </div>
+                <div class="step-card border-2 p-6 rounded-2xl text-center" onclick="showStep(3)" id="btn-step-3">
+                    <div class="text-2xl font-bold mb-2 text-slate-300">03</div>
+                    <div class="font-bold">運輸清關</div>
+                </div>
+                <div class="step-card border-2 p-6 rounded-2xl text-center" onclick="showStep(4)" id="btn-step-4">
+                    <div class="text-2xl font-bold mb-2 text-slate-300">04</div>
+                    <div class="font-bold">入庫驗收</div>
+                </div>
+                <div class="step-card border-2 p-6 rounded-2xl text-center" onclick="showStep(5)" id="btn-step-5">
+                    <div class="text-2xl font-bold mb-2 text-slate-300">05</div>
+                    <div class="font-bold">正式上架</div>
+                </div>
+            </div>
 
-</p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
-</span></font></font>難易度分析圖表 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">--&gt;</span></font></font></p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;section
-class=&quot;bg-white p-8 rounded-3xl shadow-sm border
-border-stone-200 mb-16&quot;&gt;</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h2
-class=&quot;text-xl font-bold mb-6 text-center&quot;&gt;</span></font></font>各類產品進口歐盟難易度分析<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/h2&gt;</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;div
-class=&quot;chart-container&quot;&gt;</span></font></font></p>
-<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;canvas
-id=&quot;difficultyChart&quot;&gt;&lt;/canvas&gt;</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/div&gt;</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
-class=&quot;text-xs text-center text-slate-400
-mt-4&quot;&gt;</span></font></font>註：難度越高代表審核流程越繁雜（<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">5
-</span></font></font>為最高）<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/p&gt;</span></font></font></p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/section&gt;</span></font></font></p>
-<p><br/>
-<br/>
+            <div class="bg-white p-8 md:p-12 rounded-3xl border border-slate-200 shadow-sm" id="step-content">
+                <!-- Content will be injected here by JS -->
+            </div>
+        </section>
 
-</p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;!--
-</span></font></font>聯絡資訊 <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">--&gt;</span></font></font></p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;section
-class=&quot;bg-slate-900 text-white p-10 rounded-3xl text-center&quot;&gt;</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;h2
-class=&quot;text-2xl font-bold mb-4&quot;&gt;</span></font></font>尋求行銷與物流夥伴<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/h2&gt;</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;p
-class=&quot;text-slate-400 mb-8
-text-sm&quot;&gt;</span></font></font>如果您擅長歐洲市場投放或熟悉海外倉管理，歡迎與我聯繫。<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/p&gt;</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;button
-class=&quot;bg-teal-500 hover:bg-teal-400 px-8 py-3 rounded-full
-font-bold transition&quot;&gt;</span></font></font>立即對接資源<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/button&gt;</span></font></font></p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/section&gt;</span></font></font></p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/main&gt;</span></font></font></p>
-<p><br/>
-<br/>
+        <!-- 2. Compliance Section (Interactive Grid) -->
+        <section id="compliance" class="mb-32">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="h-10 w-2 bg-teal-600 rounded-full"></div>
+                <h2 class="text-3xl font-black">各類產品合規要求</h2>
+            </div>
 
-</p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;script&gt;</span></font></font></p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">window.onload
-= function() {</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">const
-ctx = document.getElementById('difficultyChart').getContext('2d');</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">new
-Chart(ctx, {</span></font></font></p>
-<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">type:
-'bar',</span></font></font></p>
-<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">data:
-{</span></font></font></p>
-<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">labels:
-['</span></font></font>一般消費品<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">',
-'</span></font></font>電子產品<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">',
-'</span></font></font>保養品<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">',
-'</span></font></font>醫療器材<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">',
-'</span></font></font>食品<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">'],</span></font></font></p>
-<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">datasets:
-[{</span></font></font></p>
-<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">label:
-'</span></font></font>進口難度評級<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">',</span></font></font></p>
-<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">data:
-[1, 2, 3, 4, 5],</span></font></font></p>
-<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">backgroundColor:
-['#d6d3d1', '#94a3b8', '#f59e0b', '#e11d48', '#be123c'],</span></font></font></p>
-<p>                        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">borderRadius:
-8</span></font></font></p>
-<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}]</span></font></font></p>
-<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">},</span></font></font></p>
-<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">options:
-{</span></font></font></p>
-<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">responsive:
-true,</span></font></font></p>
-<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">maintainAspectRatio:
-false,</span></font></font></p>
-<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">plugins:
-{ legend: { display: false } },</span></font></font></p>
-<p>                    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">scales:
-{ y: { beginAtZero: true, max: 5 } }</span></font></font></p>
-<p>                <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">}</span></font></font></p>
-<p>            <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">});</span></font></font></p>
-<p>        <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">};</span></font></font></p>
-<p>    <font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/script&gt;</span></font></font></p>
-<p><font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/body&gt;</span></font></font></p>
-<p><font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span lang="en-US">&lt;/html&gt;</span></font></font></p>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Data Viz -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 text-center">
+                    <h3 class="font-bold mb-6">各類別進口難易度參考</h3>
+                    <div class="chart-container">
+                        <canvas id="difficultyChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-6">數據基於歐盟 EFSA 與 CE 指令監管強度</p>
+                </div>
+
+                <!-- Compliance Info -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="flex gap-4">
+                        <button onclick="updateCompliance('food')" class="px-6 py-2 rounded-full border-2 border-teal-600 text-teal-600 font-bold hover:bg-teal-600 hover:text-white transition" id="comp-food">食品</button>
+                        <button onclick="updateCompliance('beauty')" class="px-6 py-2 rounded-full border-2 border-slate-200 font-bold hover:border-teal-600 transition" id="comp-beauty">保養品</button>
+                        <button onclick="updateCompliance('tech')" class="px-6 py-2 rounded-full border-2 border-slate-200 font-bold hover:border-teal-600 transition" id="comp-tech">電器</button>
+                    </div>
+                    
+                    <div id="compliance-text" class="bg-white p-8 rounded-3xl border border-slate-200 min-h-[300px]">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Tips & Support -->
+        <section id="support" class="bg-slate-900 rounded-[3rem] p-12 text-white">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-black mb-8">Tammi 專業撇步</h2>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="text-teal-400 text-2xl font-bold">#1</div>
+                            <p class="text-slate-400"><strong>建議先走「試點路徑」：</strong> 首批貨建議 50-100 件，完整走一遍報關與標籤查驗流程，確保大貨無礙。</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="text-teal-400 text-2xl font-bold">#2</div>
+                            <p class="text-slate-400"><strong>利用「免稅倉」功能：</strong> 貨物未售出前可暫存免稅倉，延緩繳納增值稅，優化您的現金流。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
+                    <h3 class="text-xl font-bold mb-4">準備好開始了嗎？</h3>
+                    <p class="text-slate-400 mb-8 text-sm">我們的團隊已準備好協助您處理 EORI 申請與歐盟責任人 (RP) 指定。現在就預約諮詢。</p>
+                    <button class="w-full bg-teal-600 text-white py-4 rounded-xl font-black hover:bg-teal-500 transition">立即聯繫我們</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-12 text-center text-slate-400 text-xs border-t border-slate-200 mt-20">
+        © 2026 Tammi 跨境貿易戰略組 - 奧地利 & 全國跨境服務
+    </footer>
+
+    <script>
+        // Data for the 5 steps
+        const steps = {
+            1: {
+                title: "第一步：基礎帳號與稅務設定 (Identity & Tax)",
+                content: `
+                    <div class="grid md:grid-cols-2 gap-10">
+                        <div>
+                            <p class="text-slate-600 mb-6">在貨物出發前，您必須擁有在歐盟合法進口的身份。這是所有操作的基石。</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3 text-sm">
+                                    <span class="text-teal-600 font-bold">01.</span>
+                                    <span><strong>申請 EORI 號碼：</strong> 您的「歐盟身份證」，可透過奧地利稅務局代辦。</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-sm">
+                                    <span class="text-teal-600 font-bold">02.</span>
+                                    <span><strong>註冊 VAT 稅號：</strong> 在歐盟境內銷售必需具備的增值稅號。</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-2xl flex items-center justify-center italic text-slate-400 text-center">
+                            
+                        </div>
+                    </div>
+                `
+            },
+            2: {
+                title: "第二步：建立產品主數據 (SKU Creation)",
+                content: `
+                    <p class="text-slate-600 mb-6">讓物流中心系統正式「認識」您的每一件產品。</p>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="p-4 bg-white border border-slate-200 rounded-xl">
+                            <h4 class="font-bold mb-2">輸入規格</h4>
+                            <p class="text-xs text-slate-500">包含重量、尺寸及 HS Code。</p>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-200 rounded-xl">
+                            <h4 class="font-bold mb-2">上傳合規證明</h4>
+                            <p class="text-xs text-slate-500">如 CPNP (保養品) 或 CE (電器)。</p>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-200 rounded-xl">
+                            <h4 class="font-bold mb-2">建立 ASN</h4>
+                            <p class="text-xs text-slate-500">設定預計到貨通知，讓倉庫預備人力。</p>
+                        </div>
+                    </div>
+                `
+            },
+            3: {
+                title: "第三步：國際運輸與預清關 (Shipping)",
+                content: `
+                    <p class="text-slate-600 mb-6">處理實體貨物的移動與法律文件的對接。</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 border-l-4 border-teal-600 pl-4 py-2">
+                            <div>
+                                <div class="font-bold">包裝規範核對</div>
+                                <div class="text-sm text-slate-500">外箱需有清晰條碼，並符合防漏要求。</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 border-l-4 border-teal-600 pl-4 py-2">
+                            <div>
+                                <div class="font-bold">預付稅費管理</div>
+                                <div class="text-sm text-slate-500">報關行代墊關稅與 VAT，確保帳戶資金流轉。</div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            4: {
+                title: "第四步：入庫驗收 (Inbound Inspection)",
+                content: `
+                    <div class="bg-teal-50 border border-teal-100 p-6 rounded-2xl">
+                        <h4 class="font-black text-teal-800 mb-4">核心查驗點：標籤合規</h4>
+                        <p class="text-teal-900/70 text-sm mb-4 leading-relaxed">這是最關鍵的一步。若倉庫發現標籤沒有德文（奧地利強制規定），我們提供「改標服務」，協助您的貨物在入庫前完成合規化。</p>
+                        <div class="flex gap-2">
+                            <span class="bg-white px-3 py-1 rounded-full text-xs font-bold border border-teal-200">數量清點</span>
+                            <span class="bg-white px-3 py-1 rounded-full text-xs font-bold border border-teal-200">外觀查驗</span>
+                        </div>
+                    </div>
+                `
+            },
+            5: {
+                title: "第五步：正式上架與訂單連動 (Live)",
+                content: `
+                    <div class="text-center py-10">
+                        <div class="text-5xl mb-4">🚀</div>
+                        <h4 class="text-2xl font-black mb-2">庫存生效，全歐配送開始</h4>
+                        <p class="text-slate-500 text-sm mb-6">利用奧地利位於歐洲心臟的優勢，2-3 天內送抵鄰近國家。</p>
+                        <div class="inline-block px-6 py-2 bg-slate-900 text-white rounded-full font-bold">串接 ERP / Amazon / 官網</div>
+                    </div>
+                `
+            }
+        };
+
+        // Compliance Data
+        const complianceData = {
+            food: `
+                <h4 class="text-xl font-bold mb-4">食品與營養補充品 <span class="text-rose-600 text-sm ml-2">難度：⭐⭐⭐⭐⭐</span></h4>
+                <p class="text-sm text-slate-600 mb-4">核心在於配方審核與過敏原標示。奧地利法律強制要求所有標籤必須含德文，且禁止誇大療效。</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 bg-slate-50 rounded-xl text-xs"><strong>必備：</strong> 德文標籤樣本、添加劑清單</div>
+                    <div class="p-4 bg-slate-50 rounded-xl text-xs"><strong>注意：</strong> Novel Food (新資源食品) 認定</div>
+                </div>
+            `,
+            beauty: `
+                <h4 class="text-xl font-bold mb-4">保養品與化妝品 <span class="text-amber-600 text-sm ml-2">難度：⭐⭐⭐</span></h4>
+                <p class="text-sm text-slate-600 mb-4">必須在歐盟境內指定「責任人 (Responsible Person)」。所有產品需在 CPNP 門戶登錄，並準備 PIF 檔案（包含毒理評估）。</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 bg-slate-50 rounded-xl text-xs"><strong>必備：</strong> CPNP 登錄證明、PIF 文件</div>
+                    <div class="p-4 bg-slate-50 rounded-xl text-xs"><strong>注意：</strong> 絕對禁止動物實驗</div>
+                </div>
+            `,
+            tech: `
+                <h4 class="text-xl font-bold mb-4">電器與電子產品 <span class="text-blue-600 text-sm ml-2">難度：⭐⭐</span></h4>
+                <p class="text-sm text-slate-600 mb-4">核心是安全性認證。需符合 LVD (低電壓)、EMC (電磁相容性) 以及環境回收義務 (WEEE)。</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 bg-slate-50 rounded-xl text-xs"><strong>必備：</strong> CE 證書、RoHS 報告</div>
+                    <div class="p-4 bg-slate-50 rounded-xl text-xs"><strong>注意：</strong> WEEE 回收標誌與電池回收註冊</div>
+                </div>
+            `
+        };
+
+        function showStep(num) {
+            // Update UI buttons
+            document.querySelectorAll('.step-card').forEach(c => c.classList.remove('active'));
+            document.getElementById(`btn-step-${num}`).classList.add('active');
+            
+            // Inject content
+            const content = document.getElementById('step-content');
+            content.style.opacity = 0;
+            setTimeout(() => {
+                content.innerHTML = `<h3 class="text-2xl font-black mb-8">${steps[num].title}</h3>` + steps[num].content;
+                content.style.opacity = 1;
+            }, 200);
+        }
+
+        function updateCompliance(type) {
+            // Update buttons
+            ['food', 'beauty', 'tech'].forEach(t => {
+                const btn = document.getElementById(`comp-${t}`);
+                btn.className = "px-6 py-2 rounded-full border-2 font-bold transition " + (t === type ? "border-teal-600 text-teal-600" : "border-slate-200");
+            });
+            document.getElementById('compliance-text').innerHTML = complianceData[type];
+        }
+
+        // Initialize Charts
+        window.onload = function() {
+            showStep(1);
+            updateCompliance('food');
+
+            const ctx = document.getElementById('difficultyChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['食品', '保養品', '電器'],
+                    datasets: [{
+                        label: '法規監管強度',
+                        data: [5, 3, 2],
+                        backgroundColor: ['#ef4444', '#f59e0b', '#0ea5e9'],
+                        borderRadius: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true, max: 5, ticks: { stepSize: 1 } } }
+                }
+            });
+        };
+    </script>
 </body>
 </html>
